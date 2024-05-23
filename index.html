@@ -11,22 +11,31 @@
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
         <style>
-            .defaultClass
-            {background-color: white;}
             .newClass
-            {background-color: black;}
+            {background-color: white;
+            color: black;}
+            .defaultClass
+            {background-color: #212529;
+            color: white;}
         </style>
 </head> 
 
 <body>
     <!--    div.container>div.row>div.col-sm-6>div.card>div.card-header>h2.display-2^div.card-body>p^^^div.col-sm-6>div.card>div.card-header>h2.display-2^div.card-body>p   -->
-    <div id="myDiv" class="mt-4 p-4 sticky-top" style="background-color: rgb(5, 140, 140);">
+    <div id="myDiv" class="p-4 sticky-top defaultClass" style="background-color: rgb(5, 140, 140);">
         <h1>Az M.I. előnyei és hátrányai:</h1>
-        <p>Készítette: Toldy Tamás
-            <span style="float: inline-end;">
-            <button id="myElement" onclick="changeClass()"  class="newClass theme-toggle-btn">Téma váltás</button>
-            </span>
-        </p>
+        <p>Készítette: Toldy Tamás</p>
+            <ul class="nav nav-tabs">
+                <li class="nav-item">
+                    <button  onclick="changeClass()"  class="defaultClass theme-toggle-btn">Téma váltás</button>
+                </li>
+                <li class="nav-item">
+                    <button   class="defaultClass" onclick="changeBackgroundColor()">Háttér váltás:</button>
+                </li>
+                <li class="nav-item">
+                    <input class="h-100" type="color" id="colorPicker">
+                </li>
+            </ul>
       </div>
     <div class="container mt-3">
         <div class="row">
@@ -116,14 +125,42 @@
     }
         });
         function changeClass() {
-        var element = document.getElementById("myElement");
-        if (element.classList.contains("defaultClass")) {
-            element.classList.remove("defaultClass");
-            element.classList.add("newClass");
-        } else {
-            element.classList.remove("newClass");
-            element.classList.add("defaultClass");
+        var elements = document.querySelectorAll(".defaultClass, .newClass");
+        elements.forEach(function(element) {
+            if (element.classList.contains("defaultClass")) {
+                element.classList.remove("defaultClass");
+                element.classList.add("newClass");
+            } else {
+                element.classList.remove("newClass");
+                element.classList.add("defaultClass");
+            }
+        });
+    };
+    document.addEventListener('DOMContentLoaded', (event) => {
+        var savedColor = localStorage.getItem('backgroundColor');
+        if (savedColor) {
+            document.body.style.backgroundColor = savedColor;
+            document.body.style.color = getContrastingColor(savedColor);
+            document.getElementById('colorPicker').value = savedColor;
         }
+        var Div1 = document.getElementById("myDiv")
+        div.style.backgroundColor = savedColor;
+    });
+
+    function changeBackgroundColor() {
+        var colorPicker = document.getElementById("colorPicker");
+        var selectedColor = colorPicker.value;
+        document.body.style.backgroundColor = selectedColor;
+        document.body.style.color = getContrastingColor(selectedColor);
+        localStorage.setItem('backgroundColor', selectedColor);
+    }
+
+    function getContrastingColor(hex) {
+        var r = parseInt(hex.substr(1, 2), 16);
+        var g = parseInt(hex.substr(3, 2), 16);
+        var b = parseInt(hex.substr(5, 2), 16);
+        var yiq = ((r*299)+(g*587)+(b*114))/1000;
+        return (yiq >= 128) ? 'black' : 'white';
     }
     </script>
 </body>
