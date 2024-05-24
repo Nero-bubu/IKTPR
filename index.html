@@ -10,6 +10,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/5.0.0/js/bootstrap.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
         <style>
             .newClass
             {background-color: white;
@@ -88,16 +90,16 @@
                 <!-- The slideshow/carousel -->
                 <div class="carousel-inner mb-3">
                     <div class="carousel-item active">
-                        <img src="https://images.squarespace-cdn.com/content/v1/5daddb33ee92bf44231c2fef/60533e7f-5ab0-4913-811c-9a4c56e93a5c/AI-in-healthcare2.jpg" class="d-block img-fluid">
+                        <img style="border-radius: 40px;" src="https://images.squarespace-cdn.com/content/v1/5daddb33ee92bf44231c2fef/60533e7f-5ab0-4913-811c-9a4c56e93a5c/AI-in-healthcare2.jpg" class="d-block img-fluid">
                     </div>
                     <div class="carousel-item">
-                        <img src="https://d3njjcbhbojbot.cloudfront.net/api/utilities/v1/imageproxy/https://images.ctfassets.net/wp1lcwdav1p1/3epqe4j5HPaZcGrRJ1khrb/0fb6b66f8e5cb2aae058e00064c4148a/GettyImages-1199128740.jpg?w=1500&h=680&q=60&fit=fill&f=faces&fm=jpg&fl=progressive&auto=format%2Ccompress&dpr=1&w=1000" class="d-block img-fluid">
+                        <img style="border-radius: 40px;" src="https://d3njjcbhbojbot.cloudfront.net/api/utilities/v1/imageproxy/https://images.ctfassets.net/wp1lcwdav1p1/3epqe4j5HPaZcGrRJ1khrb/0fb6b66f8e5cb2aae058e00064c4148a/GettyImages-1199128740.jpg?w=1500&h=680&q=60&fit=fill&f=faces&fm=jpg&fl=progressive&auto=format%2Ccompress&dpr=1&w=1000" class="d-block img-fluid">
                     </div>
                     <div class="carousel-item">
-                        <img src="https://www.elegantthemes.com/blog/wp-content/uploads/2023/07/what-is-AI-2.jpg" class="d-block img-fluid">
+                        <img style="border-radius: 40px;" src="https://www.elegantthemes.com/blog/wp-content/uploads/2023/07/what-is-AI-2.jpg" class="d-block img-fluid">
                     </div>
                     <div class="carousel-item">
-                        <img src="https://d3njjcbhbojbot.cloudfront.net/api/utilities/v1/imageproxy/https://images.ctfassets.net/wp1lcwdav1p1/48WMPx4NZ8rgRwPRncVspO/977c6f9ebcf6574de9878dc1a1ae324d/GettyImages-1224500457.jpg?w=1500&h=680&q=60&fit=fill&f=faces&fm=jpg&fl=progressive&auto=format%2Ccompress&dpr=1&w=1000" class="d-block img-fluid">
+                        <img style="border-radius: 40px;" src="https://d3njjcbhbojbot.cloudfront.net/api/utilities/v1/imageproxy/https://images.ctfassets.net/wp1lcwdav1p1/48WMPx4NZ8rgRwPRncVspO/977c6f9ebcf6574de9878dc1a1ae324d/GettyImages-1224500457.jpg?w=1500&h=680&q=60&fit=fill&f=faces&fm=jpg&fl=progressive&auto=format%2Ccompress&dpr=1&w=1000" class="d-block img-fluid">
                     </div>
                 </div>
 
@@ -109,6 +111,66 @@
                     <span class="carousel-control-next-icon"></span>
                 </button>
             </div></div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6 mb-3">
+                <div class="card">
+                    <div class="card-body">
+                        <form>
+                            <div class="mb-3">
+                                <label for="name" class="form-label">Név:</label>
+                                <input type="text" class="form-control" id="name" placeholder="Kérjük, adja meg a nevét!">
+                            </div>
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Email cím:</label>
+                                <input type="email" class="form-control" id="email" placeholder="Kérjük, adja meg email címét!">
+                            </div>
+                            <div class="mb-3">
+                                <label for="aiExperience" class="form-label">Van már tapasztalata a mesterséges intelligenciával?</label>
+                                <select class="form-select" id="aiExperience">
+                                    <option value="no">Nincs</option>
+                                    <option value="yes">Igen</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Mely területeken használja vagy szeretné használni az MI-t?</label>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="dataAnalysis" id="dataAnalysis">
+                                    <label class="form-check-label" for="dataAnalysis">
+                                        Adat elemzés
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="automation" id="automation">
+                                    <label class="form-check-label" for="automation">
+                                        Automatizálás
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="chatbots" id="chatbots">
+                                    <label class="form-check-label" for="chatbots">
+                                        Chatbotok
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="other" id="other">
+                                    <label class="form-check-label" for="other">
+                                        Egyéb
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="mb-3"> 
+                                <label for="aiOpinion" class="form-label">Mi a véleménye a mesterséges intelligenciáról?</label>
+                                <textarea class="form-control" id="aiOpinion" rows="3"></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Küldés</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 mb-3">
+                <img style="border-radius: 40px;" src="https://www.kunstloft.de/wordpress/de_DE/de/wp-content/uploads/2023/07/a4411c44-c1cc-45ca-bf4b-2ecaf5172ba8.jpg" alt="" class="img-fluid">
+            </div>
         </div>
     </div>
     <script>
